@@ -39,6 +39,12 @@ body {
   margin: 0 auto -80px;
   /* Pad bottom by footer height */
   padding: 0 0 60px;
+  position: relative;
+
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
 }
 
 /* Set the fixed height of the footer here */
@@ -49,7 +55,42 @@ footer {
 hr {
   border-top-color: #CCC;
 }
-#surface {
+#surface,
+#composite {
 	height: 100%;
 	width: 100%;
+}
+#composite {
+  position: absolute;
+  top: 0;
+}
+.toolbox {
+  background: white;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 5px #666;
+  left: 50px;
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  top: 50px;
+  width: 160px;
+}
+.toolbox::before {
+  content: attr('title');
+  content: "Modules";
+  display: inline-block;
+  font-size: 1.2em;
+  text-align: center;
+  width: 100%;
+}
+.toolbox li {
+  border-top: 1px solid #d5d5d5;
+  color: #666;
+  margin: 0;
+  padding: 5px;
+}
+.toolbox li:hover {
+  background: #eee;
+  color: #444;
+  cursor: pointer;
 }
